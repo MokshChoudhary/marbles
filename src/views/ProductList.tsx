@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MarbleCard } from '../components/MarbleCard';
-import { useStore } from '../store';
+import { useStore } from '../../store';
 import { Sparkles, User } from 'lucide-react';
 
 export const ProductList: React.FC = () => {

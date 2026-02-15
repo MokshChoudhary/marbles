@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layers, ArrowRight } from 'lucide-react';
-import { useStore } from '../store';
+import { ArrowRight } from 'lucide-react';
+import { useStore } from '../../store';
 
 const COLLECTIONS_DATA = [
   {

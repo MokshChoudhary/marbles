@@ -1,5 +1,5 @@
 
-import { Marble } from '../types';
+import { Marble } from '../../types';
 
 export const INITIAL_INVENTORY: Marble[] = [
   {

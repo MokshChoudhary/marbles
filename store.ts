@@ -1,7 +1,7 @@
 
 import { create } from 'zustand';
-import { AppState, Marble, CartItem, ViewState } from './types';
-import { INITIAL_INVENTORY } from './data/inventory';
+import { AppState, Marble, ViewState } from './types';
+import { INITIAL_INVENTORY } from './src/data/inventory';
 
 export const useStore = create<AppState>((set, get) => ({
   marbles: INITIAL_INVENTORY,

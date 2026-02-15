@@ -2,8 +2,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingCart, Eye, AlertCircle } from 'lucide-react';
-import { Marble } from '../types';
-import { useStore } from '../store';
+import { Marble } from '../../types';
+import { useStore } from '../../store';
 
 interface MarbleCardProps {
   marble: Marble;

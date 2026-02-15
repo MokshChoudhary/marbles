@@ -3,16 +3,16 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart, Home as HomeIcon, Package, Layers, MessageSquare, Info, Mail, Search, Menu, X } from 'lucide-react';
 import { useStore } from './store';
-import { Home } from './views/Home';
-import { ProductList } from './views/ProductList';
-import { ProductDetail } from './views/ProductDetail';
-import { Checkout } from './views/Checkout';
-import { CartDrawer } from './components/CartDrawer';
-import { Collections } from './views/Collections';
-import { Testimonials } from './views/Testimonials';
-import { About } from './views/About';
-import { Contact } from './views/Contact';
-import { Clues } from './views/Clues';
+import { Home } from './src/views/Home';
+import { ProductList } from './src/views/ProductList';
+import { ProductDetail } from './src/views/ProductDetail';
+import { Checkout } from './src/views/Checkout';
+import { CartDrawer } from './src/components/CartDrawer';
+import { Collections } from './src/views/Collections';
+import { Testimonials } from './src/views/Testimonials';
+import { About } from './src/views/About';
+import { Contact } from './src/views/Contact';
+import { Clues } from './src/views/Clues';
 import { ViewState } from './types';
 
 const App: React.FC = () => {

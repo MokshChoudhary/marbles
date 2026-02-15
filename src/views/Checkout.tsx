@@ -1,8 +1,7 @@
-
-import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, Loader2, CreditCard, Truck, MapPin, ArrowRight, ArrowLeft } from 'lucide-react';
-import { useStore } from '../store';
+import React, { useState } from 'react';
+import { CheckCircle2, CreditCard, MapPin, ArrowRight } from 'lucide-react';
+import { useStore } from '../../store';
 
 type Step = 'shipping' | 'payment' | 'review' | 'processing' | 'success';
 

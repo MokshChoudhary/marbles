@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useStore } from '../store';
+import { useStore } from '../../store';
 import { ArrowRight, ChevronDown, Sparkles, Shield, Globe } from 'lucide-react';
 
 export const Home: React.FC = () => {
@@ -14,7 +14,11 @@ export const Home: React.FC = () => {
     initial: { opacity: 0, y: 50, scale: 0.9 },
     whileInView: { opacity: 1, y: 0, scale: 1 },
     viewport: { once: false, amount: 0.2 },
-    transition: { duration: 0.8, ease: "easeOut" }
+    transition: {
+      duration: 0.6,
+      ease: [0.16, 1, 0.3, 1] as const, // cubic-bezier
+    }
+
   };
 
   const staggerContainer = {
@@ -37,13 +41,13 @@ export const Home: React.FC = () => {
     <div className="relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        <motion.div 
+        <motion.div
           style={{ y: yTranslate }}
-          className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full bg-blue-600/10 blur-[120px]" 
+          className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full bg-blue-600/10 blur-[120px]"
         />
-        <motion.div 
+        <motion.div
           style={{ y: useTransform(scrollYProgress, [0, 1], [0, 200]) }}
-          className="absolute top-[80%] -left-40 h-[500px] w-[500px] rounded-full bg-purple-600/10 blur-[120px]" 
+          className="absolute top-[80%] -left-40 h-[500px] w-[500px] rounded-full bg-purple-600/10 blur-[120px]"
         />
       </div>
 
@@ -76,7 +80,7 @@ export const Home: React.FC = () => {
           transition={{ delay: 0.5, duration: 1 }}
           className="mt-8 max-w-2xl text-center text-xl text-gray-400 md:text-2xl"
         >
-          Collectible floor marbles forged from authentic geological treasures. 
+          Collectible floor marbles forged from authentic geological treasures.
           A convergence of history, weight, and light.
         </motion.p>
 
@@ -112,7 +116,7 @@ export const Home: React.FC = () => {
 
       {/* 2. Scroll-Triggered Feature Grid */}
       <section className="container mx-auto px-4 py-32">
-        <motion.div 
+        <motion.div
           className="grid gap-12 md:grid-cols-3"
           variants={staggerContainer}
           initial="initial"
@@ -120,24 +124,24 @@ export const Home: React.FC = () => {
           viewport={{ once: false, amount: 0.3 }}
         >
           {[
-            { 
-              icon: Sparkles, 
-              title: "Crystal Clarity", 
-              desc: "Every marble is polished to a 12,000-grit mirror finish for unmatched refraction." 
+            {
+              icon: Sparkles,
+              title: "Crystal Clarity",
+              desc: "Every marble is polished to a 12,000-grit mirror finish for unmatched refraction."
             },
-            { 
-              icon: Shield, 
-              title: "Heirloom Quality", 
-              desc: "Forged to last centuries, maintaining its weight and luster through the passage of time." 
+            {
+              icon: Shield,
+              title: "Heirloom Quality",
+              desc: "Forged to last centuries, maintaining its weight and luster through the passage of time."
             },
-            { 
-              icon: Globe, 
-              title: "Global Sourcing", 
-              desc: "Materials extracted from legendary quarries in Italy, Greece, and the depths of Brazil." 
+            {
+              icon: Globe,
+              title: "Global Sourcing",
+              desc: "Materials extracted from legendary quarries in Italy, Greece, and the depths of Brazil."
             }
           ].map((feature, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               variants={staggerItem}
               className="glass group rounded-[3rem] p-10 transition-colors hover:bg-white/10"
             >
@@ -154,26 +158,26 @@ export const Home: React.FC = () => {
       {/* 3. Immersive "The Collection" Teaser with In-Out Scroll Animation */}
       <section className="py-32">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             {...scrollReveal}
             className="glass-dark relative overflow-hidden rounded-[4rem] p-12 md:p-24"
           >
             <div className="relative z-10 grid gap-16 lg:grid-cols-2 lg:items-center">
               <div>
-                <motion.h2 
+                <motion.h2
                   variants={staggerItem}
                   className="mb-8 text-5xl font-black md:text-7xl"
                 >
                   BEYOND <br />
                   <span className="text-blue-500">ORDINARY</span>
                 </motion.h2>
-                <motion.p 
+                <motion.p
                   variants={staggerItem}
                   className="mb-10 text-xl text-gray-400"
                 >
                   Our "Floor Marble" collection represents the pinnacle of geological curation. Each sphere is a unique fingerprint of the Earth, capturing frozen moments of heat and pressure from millions of years ago.
                 </motion.p>
-                <motion.button 
+                <motion.button
                   variants={staggerItem}
                   onClick={() => setView('collections')}
                   className="group flex items-center gap-3 text-2xl font-black text-blue-400 transition-all hover:text-blue-300"
@@ -182,12 +186,12 @@ export const Home: React.FC = () => {
                   <ArrowRight className="transition-transform group-hover:translate-x-2" size={28} />
                 </motion.button>
               </div>
-              
+
               <div className="relative aspect-square overflow-hidden rounded-[3rem] border border-white/10 shadow-2xl">
-                <motion.img 
+                <motion.img
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 10, ease: "linear" }}
-                  src="https://images.unsplash.com/photo-1533158307587-828f0a76ef46?auto=format&fit=crop&w=1000&q=80" 
+                  src="https://images.unsplash.com/photo-1533158307587-828f0a76ef46?auto=format&fit=crop&w=1000&q=80"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -199,7 +203,7 @@ export const Home: React.FC = () => {
 
       {/* 4. Scrolling Stats Section */}
       <section className="container mx-auto px-4 py-20">
-        <motion.div 
+        <motion.div
           className="flex flex-wrap justify-center gap-12 text-center md:gap-32"
           variants={staggerContainer}
           initial="initial"
@@ -234,7 +238,7 @@ export const Home: React.FC = () => {
             <span className="relative z-10 flex items-center gap-3">
               Begin Your Journey <ArrowRight size={28} />
             </span>
-            <motion.div 
+            <motion.div
               className="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-600"
               initial={{ x: "-100%" }}
               whileHover={{ x: 0 }}

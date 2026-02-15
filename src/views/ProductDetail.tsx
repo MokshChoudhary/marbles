@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, Minus, Plus, ShoppingCart, ShieldCheck, Globe, Star } from 'lucide-react';
-import { useStore } from '../store';
+import { useStore } from '../../store';
 
 export const ProductDetail: React.FC = () => {
   const { selectedMarble, setView, addToCart, setIsCartOpen } = useStore();
